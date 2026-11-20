@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center border">
+    <div class="container-fluid py-5">
+        <span class="badge bg-warning text-dark mb-2 fs-6">Todo para el consentido de la casa</span>
+        <h1 class="display-5 fw-bold">Bienvenido a MichiShop</h1>
+        <p class="col-md-8 mx-auto fs-5 text-muted">
+            Administra el inventario de rascadores, juguetes, camas y accesorios para gatos. Registra nuevos artículos o explora el catálogo disponible.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+            <a href="{{ url_for('registro') }}" class="btn btn-warning btn-lg px-4 fw-bold">Registrar Producto</a>
+            <a href="{{ url_for('consulta') }}" class="btn btn-outline-dark btn-lg px-4">Ver Catálogo</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

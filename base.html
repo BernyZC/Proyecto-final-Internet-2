@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Catálogo de Accesorios</h2>
+    <a href="{{ url_for('registro') }}" class="btn btn-warning btn-sm fw-bold">+ Nuevo Producto</a>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for prod in productos %}
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="data:image/jpeg;base64,{{ prod.imagen_b64 }}" class="card-img-top" alt="{{ prod.nombre }}" style="height: 280px; object-fit: cover;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <span class="badge bg-dark text-warning">{{ prod.categoria }}</span>
+                    <span class="fw-bold text-success fs-5">${{ prod.precio }}</span>
+                </div>
+                <h5 class="card-title">{{ prod.nombre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Marca: {{ prod.marca }}</h6>
+                <p class="card-text small text-muted mb-0">Ingreso: {{ prod.fecha_ingreso }} | ID: #{{ prod.id }}</p>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-secondary text-center">
+            Aún no hay accesorios registrados. ¡Agrega el primero!
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
